@@ -24,6 +24,11 @@
 		77536FAC1954478200BFF5AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77536F871954478100BFF5AB /* UIKit.framework */; };
 		77536FB41954478300BFF5AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77536FB21954478300BFF5AB /* InfoPlist.strings */; };
 		77536FB61954478300BFF5AB /* SKPhysicsJointSlidingDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FB51954478300BFF5AB /* SKPhysicsJointSlidingDemoTests.m */; };
+		77536FC11957FCD900BFF5AB /* WScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FC01957FCD900BFF5AB /* WScene.m */; };
+		77536FC41957FE9400BFF5AB /* ShootScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FC31957FE9400BFF5AB /* ShootScene.m */; };
+		77536FC71958031200BFF5AB /* WWScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FC61958031200BFF5AB /* WWScene.m */; };
+		77536FCA1958049E00BFF5AB /* BigBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FC91958049E00BFF5AB /* BigBall.m */; };
+		77536FCD195806BF00BFF5AB /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 77536FCC195806BF00BFF5AB /* Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,16 @@
 		77536FB11954478200BFF5AB /* SKPhysicsJointSlidingDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SKPhysicsJointSlidingDemoTests-Info.plist"; sourceTree = "<group>"; };
 		77536FB31954478300BFF5AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77536FB51954478300BFF5AB /* SKPhysicsJointSlidingDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKPhysicsJointSlidingDemoTests.m; sourceTree = "<group>"; };
+		77536FBF1957FCD900BFF5AB /* WScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WScene.h; sourceTree = "<group>"; };
+		77536FC01957FCD900BFF5AB /* WScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WScene.m; sourceTree = "<group>"; };
+		77536FC21957FE9400BFF5AB /* ShootScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootScene.h; sourceTree = "<group>"; };
+		77536FC31957FE9400BFF5AB /* ShootScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootScene.m; sourceTree = "<group>"; };
+		77536FC51958031200BFF5AB /* WWScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWScene.h; sourceTree = "<group>"; };
+		77536FC61958031200BFF5AB /* WWScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWScene.m; sourceTree = "<group>"; };
+		77536FC81958049E00BFF5AB /* BigBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigBall.h; sourceTree = "<group>"; };
+		77536FC91958049E00BFF5AB /* BigBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigBall.m; sourceTree = "<group>"; };
+		77536FCB195806BF00BFF5AB /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		77536FCC195806BF00BFF5AB /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +143,16 @@
 				77536F9B1954478200BFF5AB /* ViewController.m */,
 				77536F9D1954478200BFF5AB /* MyScene.h */,
 				77536F9E1954478200BFF5AB /* MyScene.m */,
+				77536FBF1957FCD900BFF5AB /* WScene.h */,
+				77536FC01957FCD900BFF5AB /* WScene.m */,
+				77536FC51958031200BFF5AB /* WWScene.h */,
+				77536FC61958031200BFF5AB /* WWScene.m */,
+				77536FC81958049E00BFF5AB /* BigBall.h */,
+				77536FC91958049E00BFF5AB /* BigBall.m */,
+				77536FCB195806BF00BFF5AB /* Test.h */,
+				77536FCC195806BF00BFF5AB /* Test.m */,
+				77536FC21957FE9400BFF5AB /* ShootScene.h */,
+				77536FC31957FE9400BFF5AB /* ShootScene.m */,
 				77536FA01954478200BFF5AB /* Spaceship.png */,
 				77536FA21954478200BFF5AB /* Images.xcassets */,
 				77536F8C1954478100BFF5AB /* Supporting Files */,
@@ -262,10 +287,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77536FC41957FE9400BFF5AB /* ShootScene.m in Sources */,
+				77536FCA1958049E00BFF5AB /* BigBall.m in Sources */,
 				77536F9F1954478200BFF5AB /* MyScene.m in Sources */,
+				77536FCD195806BF00BFF5AB /* Test.m in Sources */,
 				77536F9C1954478200BFF5AB /* ViewController.m in Sources */,
 				77536F961954478200BFF5AB /* AppDelegate.m in Sources */,
 				77536F921954478200BFF5AB /* main.m in Sources */,
+				77536FC71958031200BFF5AB /* WWScene.m in Sources */,
+				77536FC11957FCD900BFF5AB /* WScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

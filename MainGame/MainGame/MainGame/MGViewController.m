@@ -1,33 +1,27 @@
 //
-//  ViewController.m
-//  SKPhysicsJointSlidingDemo
+//  MGViewController.m
+//  MainGame
 //
-//  Created by jins on 14-6-20.
+//  Created by jins on 14-6-24.
 //  Copyright (c) 2014年 BlackWater. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "MyScene.h"
-#import "WScene.h"
-#import "ShootScene.h"
-#import "WWScene.h"
-#import "BigBall.h"
-#import "Test.h"
+#import "MGViewController.h"
+#import "MGMyScene.h"
 
-@implementation ViewController
+@implementation MGViewController
 
-- (void)viewDidLoad
+- (void)viewWillLayoutSubviews
 {
-    [super viewDidLoad];
+    [super viewWillLayoutSubviews];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-    skView.showsPhysics = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [Test sceneWithSize:skView.bounds.size];
+    SKScene * scene = [MGMyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.

@@ -12,6 +12,8 @@
 
 @interface MyScene()
 @property BOOL contentCreated;
+@property SKSpriteNode *node1;
+@property SKSpriteNode *node2;
 @end
 
 @implementation MyScene
@@ -19,9 +21,80 @@
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated) {
-        [self createSceneContents];
+        //[self createSceneContents];
+        //[self createCar];
+        [self createTemp];
+        /*SKSpriteNode *fire = [SKSpriteNode spriteNodeWithImageNamed:@"fire"];
+        fire.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        [self addChild:fire];
+        [fire runAction:[SKAction rotateByAngle:M_PI/4 duration:0]];*/
         self.contentCreated = YES;
     }
+}
+
+- (void)createTemp
+{
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    CGPoint position = CGPointMake(100, 60);
+    CGPoint position2 = CGPointMake(100, 180);
+    CGSize size = CGSizeMake(10, 100);
+    
+    self.node1 = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:size];
+    self.node1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+    self.node1.position = position;
+    
+    self.node2 = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:size];
+    self.node2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+    self.node2.position = position2;
+    
+    [self addChild:self.node1];
+    [self addChild:self.node2];
+    
+    SKPhysicsJointFixed *joint = [SKPhysicsJointFixed jointWithBodyA:self.node1.physicsBody
+                                                               bodyB:self.node2.physicsBody
+                                                              anchor:CGPointMake(self.node1.position.x, self.node1.position.y)];
+    
+    [self.physicsWorld addJoint:joint];
+}
+
+- (SKShapeNode*) makeWheel
+{
+    SKShapeNode *wheel = [[SKShapeNode alloc] init];
+    CGMutablePathRef myPath = CGPathCreateMutable();
+    CGPathAddArc(myPath, NULL, 0,0, 16, 0, M_PI*2, YES);
+    wheel.path = myPath;
+    return wheel;
+}
+
+
+- (void) createCar
+{
+    
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+    
+    // 1. car body
+    SKSpriteNode *carBody = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(120, 8)];
+    carBody.position = CGPointMake(100, 200);
+    carBody.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:carBody.size];
+    [self addChild:carBody];
+    
+    // 2. wheels
+    SKShapeNode *leftWheel = [self makeWheel];
+    leftWheel.position = CGPointMake(carBody.position.x - carBody.size.width / 2, carBody.position.y);
+    leftWheel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:16];
+    [self addChild:leftWheel];
+    
+    SKShapeNode *rightWheel = [self makeWheel];
+    rightWheel.position = CGPointMake(carBody.position.x + carBody.size.width / 2, carBody.position.y);
+    rightWheel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:16];
+    [self addChild:rightWheel];
+    
+    // 3. Join wheels to car
+    [self.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:leftWheel.physicsBody anchor:leftWheel.position]];
+    [self.physicsWorld addJoint:[SKPhysicsJointPin jointWithBodyA:carBody.physicsBody bodyB:rightWheel.physicsBody anchor:rightWheel.position]];
+    
+    // 4. drive car
+    [carBody.physicsBody applyForce:CGVectorMake(10, 0)];
 }
 
 - (void)createSceneContents
@@ -87,7 +160,7 @@
     circleB.name = @"cocoonPart";
     
     
-    SKSpriteNode *centerBar = [SKSpriteNode spriteNodeWithColor:color size:CGSizeMake(20, 1.5*r)];
+    SKSpriteNode *centerBar = [SKSpriteNode spriteNodeWithColor:color size:CGSizeMake(20, 1.5 * r)];
     centerBar.position = CGPointMake(250, 470 - r/2.0);
     centerBar.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:centerBar.size];
     [self addChild:centerBar];
@@ -124,7 +197,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    int rand = arc4random() % 3;
+    /*int rand = arc4random() % 3;
     
     switch (rand) {
         case 0:
@@ -137,7 +210,8 @@
             [self createCocoonBall:ColorHex(0x732D14)];
             break;
             
-    }
+    }*/
+    [self.node1.physicsBody applyImpulse:CGVectorMake(0, 100)];
 }
 
 - (void)didSimulatePhysics
